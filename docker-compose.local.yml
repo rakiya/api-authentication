@@ -6,11 +6,12 @@ services:
     container_name: db-authentication
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ryutaro_akiya
-      MONGO_INITDB_ROOT_PASSWORD: Haba#Nero_1219
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: abcde
       MONGO_INITDB_DATABASE: habanero
     volumes:
       - ./db/:/docker-entrypoint-initdb.d/
+      - ./tmp/mongodb:/data/db
     networks:
       - default
     ports:
@@ -23,8 +24,6 @@ services:
     networks:
       - default
       - habanero-network
-    ports:
-      - 8080:80
     command: "java -server \
       -XX:+UnlockExperimentalVMOptions \
       -XX:+UseCGroupMemoryLimitForHeap \
