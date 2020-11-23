@@ -24,6 +24,8 @@ services:
     networks:
       - default
       - habanero-network
+    ports:
+      - 8081:80
     command: "java -server \
       -XX:+UnlockExperimentalVMOptions \
       -XX:+UseCGroupMemoryLimitForHeap \
